@@ -1,6 +1,7 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import { clearList } from './render-functions';
+import iconOctagon from '/img/bi_x-octagon.png';
 
 export function fetchPhotos(textValue) {
   const KEY_URL = '44930216-c8fe7065044399c3ab26c911d';
@@ -24,9 +25,16 @@ export function fetchPhotos(textValue) {
         clearList();
 
         iziToast.error({
-          title: 'Error',
+          position: 'topRight',
+          title: 'Sorry,',
           message:
-            'Sorry, there are no images matching your search query. Please try again!',
+            'there are no images matching your search query. Please try again!',
+          titleColor: 'white',
+          titleSize: '16px',
+          messageColor: 'white',
+          backgroundColor: '#ef4040',
+          iconUrl: iconOctagon,
+          layout: 2,
         });
         return;
       }

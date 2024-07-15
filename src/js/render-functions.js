@@ -17,11 +17,11 @@ function renderFunctions(photos) {
         largeImageURL,
       }) => `
     <li class="gallery">
-      <a href="${largeImageURL}"><img src="${webformatURL}" alt="${tags}" loading="lazy"></a>
-      <span>Likes ${likes}</span>
-      <span>Views ${views}</span>
-      <span>Comments ${comments}</span>
-      <span>Downloads ${downloads}</span>
+      <a class="gallery-link" href="${largeImageURL}"><img src="${webformatURL}" alt="${tags}" loading="lazy">
+      <div class="gallery-wrap"><span class="span">Likes <span class="value">${likes}</span></span>
+      <span class="span">Views <span class="value">${views}</span></span>
+      <span class="span">Comments <span class="value">${comments}</span></span>
+      <span class="span">Downloads <span class="value">${downloads}</span></span></div></a>
     </li>`
     )
     .join('');
