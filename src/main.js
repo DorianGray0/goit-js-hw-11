@@ -3,8 +3,9 @@ import { renderFunctions } from './js/render-functions';
 
 const elements = {
   form: document.querySelector('.js-form'),
+  spinner: document.querySelector('.js-loader'),
 };
-
+console.log(elements.spinner);
 elements.form.addEventListener('submit', handlerSearch);
 
 function handlerSearch(evt) {
@@ -20,7 +21,13 @@ function handlerSearch(evt) {
     return;
   }
 
-  fetchPhotos(data.textValue).then(photos => renderFunctions(photos));
+  elements.spinner.hidden = false;
+
+  fetchPhotos(data.textValue)
+    .then(photos => renderFunctions(photos))
+    .finally(() => {
+      elements.spinner.hidden = true;
+    });
 
   evt.currentTarget.reset();
 }
