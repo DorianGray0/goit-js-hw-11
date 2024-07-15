@@ -1,7 +1,8 @@
 import { fetchPhotos } from './js/pixabay-api';
+import { renderFunctions } from './js/render-functions';
 
 const elements = {
-  form: document.querySelector('.form'),
+  form: document.querySelector('.js-form'),
 };
 
 elements.form.addEventListener('submit', handlerSearch);
@@ -19,7 +20,7 @@ function handlerSearch(evt) {
     return;
   }
 
-  fetchPhotos(data.textValue);
+  fetchPhotos(data.textValue).then(photos => renderFunctions(photos));
 
   evt.currentTarget.reset();
 }

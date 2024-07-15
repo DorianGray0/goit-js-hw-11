@@ -1,6 +1,6 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
-import { renderFunctions } from './render-functions';
+import { clearList } from './render-functions';
 
 export function fetchPhotos(textValue) {
   const KEY_URL = '44930216-c8fe7065044399c3ab26c911d';
@@ -21,6 +21,8 @@ export function fetchPhotos(textValue) {
     })
     .then(photos => {
       if (photos.hits.length === 0) {
+        clearList();
+
         iziToast.error({
           title: 'Error',
           message:
@@ -28,8 +30,7 @@ export function fetchPhotos(textValue) {
         });
         return;
       }
-      console.log(photos);
-      console.log(renderFunctions(photos));
+      return photos;
     })
     .catch(error => console.error(error));
 }
