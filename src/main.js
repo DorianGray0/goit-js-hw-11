@@ -1,5 +1,5 @@
 import { fetchPhotos } from './js/pixabay-api';
-import { renderFunctions } from './js/render-functions';
+import { clearList, renderFunctions } from './js/render-functions';
 
 const elements = {
   form: document.querySelector('.js-form'),
@@ -19,7 +19,7 @@ function handlerSearch(evt) {
     alert('it is empty');
     return;
   }
-
+  clearList();
   spinnerShown();
 
   fetchPhotos(data.textValue)
