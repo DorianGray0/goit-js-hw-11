@@ -20,13 +20,21 @@ function handlerSearch(evt) {
     return;
   }
 
-  elements.spinner.hidden = false;
+  spinnerShown();
 
   fetchPhotos(data.textValue)
     .then(photos => renderFunctions(photos))
     .finally(() => {
-      elements.spinner.hidden = true;
+      spinnerClose();
     });
 
   evt.currentTarget.reset();
+}
+
+function spinnerShown() {
+  return elements.spinner.classList.remove('hidden');
+}
+
+function spinnerClose() {
+  return elements.spinner.classList.add('hidden');
 }

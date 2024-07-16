@@ -133,6 +133,10 @@ h1 {
   animation: rotation 1s linear infinite;
 }
 
+.hidden {
+  display: none;
+}
+
 @keyframes rotation {
   0% {
     transform: rotate(0deg);
