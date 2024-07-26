@@ -26,15 +26,16 @@ export function fetchPhotos(textValue) {
 
         iziToast.error({
           position: 'topRight',
-          title: 'Sorry,',
+
           message:
-            'there are no images matching your search query. Please try again!',
+            'Sorry, there are no images matching your search query. Please try again!',
           titleColor: 'white',
           titleSize: '16px',
           messageColor: 'white',
           backgroundColor: '#ef4040',
           iconUrl: iconOctagon,
           layout: 2,
+          maxWidth: '432px',
         });
         return;
       }

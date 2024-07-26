@@ -122,6 +122,11 @@ h1 {
   line-height: 2;
 }
 
+.iziToast-capsule > .iziToast > .iziToast-close {
+  background-image: url(../img/bi_x-lg.png);
+  background-size: 16px 16px;
+}
+
 .loader {
   top: 20px;
   left: 50%;
